@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doTweenAnimationsConfig: {fileID: 11400000, guid: 7a6fbd9f0620cc14dadd453f6db53c1b, type: 2}
+  _shopConfig: {fileID: 11400000, guid: 54b136c1dcfe2e240b36854a706dbad5, type: 2}
   _shopView: {fileID: 1972140229}
 --- !u!114 &1794188726 stripped
 MonoBehaviour:
