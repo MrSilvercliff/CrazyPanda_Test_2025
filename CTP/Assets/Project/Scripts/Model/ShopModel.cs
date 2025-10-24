@@ -24,7 +24,7 @@ namespace RedPanda.Project
             };
 
             var offerModels = new List<OfferModel>();
-            var offerModelsByOfferType = new Dictionary<OfferType, List<OfferModel>>();
+            var offerModelsByOfferType = new Dictionary<OfferType, IReadOnlyList<OfferModel>>();
 
             foreach (var offerData in offerConfigs)
             {
@@ -32,15 +32,27 @@ namespace RedPanda.Project
                 var offerModel = new OfferModel(offerData);
                 offerModels.Add(offerModel);
 
-                if (!offerModelsByOfferType.TryGetValue(offerType, out var list))
+                List<OfferModel> list;
+
+                if (!offerModelsByOfferType.ContainsKey(offerType))
                 { 
                     list = new List<OfferModel>();
                     offerModelsByOfferType[offerType] = list;
                 }
+
+                list = (List<OfferModel>)offerModelsByOfferType[offerType];
                 list.Add(offerModel);
             }
 
+            foreach (var offerModelList in offerModelsByOfferType.Values)
+            {
+                var list = (List<OfferModel>)offerModelList;
+                list.Sort((a, b) => b.Config.Rarity.CompareTo(a.Config.Rarity));
+            }
+                
+
             Offers = offerModels;
+            OffersByOfferType = offerModelsByOfferType;
         }
     }
 }
