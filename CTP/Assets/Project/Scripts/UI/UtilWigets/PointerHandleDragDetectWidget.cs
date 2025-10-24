@@ -5,7 +5,7 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
 {
     public class PointerHandleDragDetectWidget : PointerHandleWidget
     {
-        private bool _isDragging;
+        protected bool _isDragging;
 
         protected override void Awake()
         {
@@ -13,7 +13,7 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
             _isDragging = false;
         }
 
-        public void OnBeginDrag()
+        public virtual void OnBeginDrag()
         {
             _isDragging = true;
         }

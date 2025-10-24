@@ -8,9 +8,9 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
     {
         [SerializeField] private Button _button;
 
-        private bool _pointerDownHandled;
-        private bool _pointerEntered;
-        private bool _canInvokeClick;
+        protected bool _pointerDownHandled;
+        protected bool _pointerEntered;
+        protected bool _canInvokeClick;
 
         protected virtual void Awake()
         {
@@ -19,22 +19,22 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
             _canInvokeClick = false;
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        public virtual void OnPointerEnter(PointerEventData eventData)
         {
             _pointerEntered = true;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public virtual void OnPointerExit(PointerEventData eventData)
         {
             _pointerEntered = false;
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public virtual void OnPointerDown(PointerEventData eventData)
         {
             _pointerDownHandled = true;
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        public virtual void OnPointerUp(PointerEventData eventData)
         {
             if (_pointerEntered && _pointerDownHandled)
                 _canInvokeClick = true;
@@ -47,7 +47,9 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
             if (!_canInvokeClick)
                 return;
 
-            Debug.LogError($"POINTER CLICK INVOKE");
+            if (!_button.interactable)
+                return;
+
             _canInvokeClick = false;
             _button.onClick?.Invoke();
         }
