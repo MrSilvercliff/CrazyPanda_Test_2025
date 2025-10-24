@@ -1,6 +1,8 @@
 using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.UI.Events;
 using System;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +19,16 @@ namespace RedPanda.Project.Scripts.UI
 
         private OfferModel _offerModel;
 
+        private void OnEnable()
+        {
+            GameController.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+        }
+
+        private void OnDisable()
+        {
+            GameController.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+        }
+
         private void Awake()
         {
             _buyButton.onClick.AddListener(OnBuyButtonClick);
@@ -31,21 +43,31 @@ namespace RedPanda.Project.Scripts.UI
         private void Refresh()
         {
             if (_offerModel == null)
+            {
+                gameObject.SetActive(false);
                 return;
+            }
 
-            RefreshTitle();
-            RefreshBackImage();
+            gameObject.SetActive(true);
+
+            var shopConfig = GameController.Instance.ShopConfig;
+            var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
+
+            RefreshTitle(raritySettings);
+            RefreshBackImage(raritySettings);
             RefreshIcon();
             RefreshPriceText();
+            RefreshHasCurrency(shopConfig, raritySettings);
         }
 
-        private void RefreshTitle()
+        private void RefreshTitle(ShopConfig.RaritySettingsItem raritySettingsItem)
         {
             _titleText.text = _offerModel.Config.Title;
         }
 
-        private void RefreshBackImage()
+        private void RefreshBackImage(ShopConfig.RaritySettingsItem raritySettingsItem)
         {
+            _backImage.sprite = raritySettingsItem.BackSprite;
         }
 
         private void RefreshIcon()
@@ -57,9 +79,33 @@ namespace RedPanda.Project.Scripts.UI
             _priceText.text = $"x{_offerModel.Config.Cost}";
         }
 
+        private void RefreshHasCurrency(IShopConfig shopConfig, ShopConfig.RaritySettingsItem raritySettingsItem)
+        {
+            var hasCurrency = GameController.Instance.User.HasCurrency(_offerModel.Config.Cost);
+            _buyButton.interactable = hasCurrency;
+
+            if (hasCurrency)
+            {
+                _titleText.fontMaterial = raritySettingsItem.TitleFontMaterial;
+                _priceText.fontMaterial = shopConfig.PriceTextFontMaterial;
+            }
+            else
+            {
+                _titleText.fontMaterial = shopConfig.GrayScaleFontMaterial;
+                _priceText.fontMaterial = shopConfig.GrayScaleFontMaterial;
+            }
+        }
+
         private void OnBuyButtonClick()
         {
             GameController.Instance.ShopService.TryBuy(_offerModel);
+        }
+
+        private async Task OnCurrencyChangeEvent(CurrencyChangeEvent @event)
+        {
+            var shopConfig = GameController.Instance.ShopConfig;
+            var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
+            RefreshHasCurrency(shopConfig, raritySettings);
         }
     }
 }
