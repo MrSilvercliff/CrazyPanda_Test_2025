@@ -89,7 +89,7 @@ namespace RedPanda.Project
             var config = GameController.Instance.DOTweenAnimationsConfig.ButtonAnimationConfig;
 
             var scaleValue = 1f;
-            var duration = config.ScaleDownDuration;
+            var duration = config.ScaleUpDuration;
 
             _currentSequence = DOTween.Sequence();
             _currentSequence.Append(_contentToScale.DOScale(scaleValue, duration));

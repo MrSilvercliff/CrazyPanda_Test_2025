@@ -4,17 +4,17 @@ namespace RedPanda.Project
 {
     public interface IButtonAnimationConfig
     { 
-        float ButtonContentScale { get; }
-        float PointerDownScaleDuration { get; }
-        float PointerUpScaleDuration { get; }
+        float ContentScaleValue { get; }
+        float ScaleDownDuration { get; }
+        float ScaleUpDuration { get; }
     }
 
     [CreateAssetMenu(fileName = "ButtonAnimationConfig", menuName = "Configs/DOTween/ButtonAnimationConfig")]
     public class ButtonAnimationConfig : ScriptableObject, IButtonAnimationConfig
     {
-        public float ButtonContentScale => _buttonContentScale;
-        public float PointerDownScaleDuration => _pointerDownScaleDuration;
-        public float PointerUpScaleDuration => _pointerUpScaleDuration;
+        public float ContentScaleValue => _buttonContentScale;
+        public float ScaleDownDuration => _pointerDownScaleDuration;
+        public float ScaleUpDuration => _pointerUpScaleDuration;
 
         [SerializeField] private float _buttonContentScale;
         [SerializeField] private float _pointerDownScaleDuration;
