@@ -1,3 +1,4 @@
+using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Model;
 using System;
 using TMPro;
@@ -58,7 +59,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnBuyButtonClick()
         {
-            Game.ShopService.TryBuy(_offerModel);
+            GameController.ShopService.TryBuy(_offerModel);
         }
     }
 }
