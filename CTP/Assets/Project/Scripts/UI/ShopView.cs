@@ -37,7 +37,7 @@ namespace RedPanda.Project
 
                 /*
                  * Better use object pooling
-                 * But have not so much time, so heck it
+                 * But dont have so much time, so heck it
                  */
                 var newWidget = Instantiate(_categoryWidgetPrefab, _categoryWidgetContainer);
                 newWidget.Init();
