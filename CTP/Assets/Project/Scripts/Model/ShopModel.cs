@@ -2,7 +2,13 @@ using System.Collections.Generic;
 
 namespace RedPanda.Project.Scripts.Model
 {
-    public sealed class ShopModel
+    public interface IShopModel
+    {
+        IReadOnlyList<OfferModel> Offers { get; }
+        IReadOnlyDictionary<OfferType, IReadOnlyList<OfferModel>> OffersByOfferType { get; }
+    }
+
+    public sealed class ShopModel : IShopModel
     {
         public IReadOnlyList<OfferModel> Offers { get; }
         public IReadOnlyDictionary<OfferType, IReadOnlyList<OfferModel>> OffersByOfferType { get; }

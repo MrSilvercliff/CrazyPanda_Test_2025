@@ -5,7 +5,16 @@ using System;
 
 namespace RedPanda.Project.Scripts.Model
 {
-    public sealed class UserModel : IMonoUpdatable
+    public interface IUserModel : IMonoUpdatable
+    {
+        int Currency { get; }
+
+        void AddCurrency(int delta);
+        void SpendCurrency(int delta);
+        bool HasCurrency(int amount);
+    }
+
+    public sealed class UserModel : IUserModel
     {
         public int Currency { get; private set; }
 
@@ -28,7 +37,7 @@ namespace RedPanda.Project.Scripts.Model
                 Currency = CurrencyMaxLimit;
 
             var evnt = new CurrencyChangeEvent();
-            GameController.EventBus.Fire(evnt);
+            GameController.Instance.EventBus.Fire(evnt);
         }
 
         public void SpendCurrency(int delta)
@@ -39,7 +48,7 @@ namespace RedPanda.Project.Scripts.Model
                 Currency = 0;
 
             var evnt = new CurrencyChangeEvent();
-            GameController.EventBus.Fire(evnt);
+            GameController.Instance.EventBus.Fire(evnt);
         }
 
         public bool HasCurrency(int amount)

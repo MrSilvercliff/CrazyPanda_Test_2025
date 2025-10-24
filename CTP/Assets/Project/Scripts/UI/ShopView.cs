@@ -19,12 +19,12 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnEnable()
         {
-            GameController.EventBus.Subscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
+            GameController.Instance.EventBus.Subscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
         }
 
         private void OnDisable()
         {
-            GameController.EventBus.UnSubscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
+            GameController.Instance.EventBus.UnSubscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
         }
 
         public void Init()
@@ -41,7 +41,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshCategoryWidgets()
         {
-            var offersByType = GameController.Shop.OffersByOfferType;
+            var offersByType = GameController.Instance.ShopService.ShopModel.OffersByOfferType;
 
             foreach (var offerByTypeItem in offersByType)
             {

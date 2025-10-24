@@ -7,11 +7,19 @@ namespace RedPanda.Project.Scripts.Services
 {
     public interface IShopService
     {
+        IShopModel ShopModel { get; }
         void TryBuy(OfferModel offerModel);
     }
 
     public class ShopService : IShopService
     {
+        public IShopModel ShopModel { get; }
+
+        public ShopService()
+        { 
+            ShopModel = new ShopModel();
+        }
+
         public void TryBuy(OfferModel offerModel)
         {
             var buyLimitReached = offerModel.IsBuyLimitReached();
@@ -23,7 +31,7 @@ namespace RedPanda.Project.Scripts.Services
             }
 
             var offerCost = offerModel.Config.Cost;
-            var hasCurrency = GameController.User.HasCurrency(offerCost);
+            var hasCurrency = GameController.Instance.User.HasCurrency(offerCost);
 
             if (!hasCurrency)
             {
@@ -33,11 +41,11 @@ namespace RedPanda.Project.Scripts.Services
 
             Debug.Log($"Buying offer [{offerModel.Config.Id}] [{offerModel.Config.Title}]");
 
-            GameController.User.SpendCurrency(offerCost);
+            GameController.Instance.User.SpendCurrency(offerCost);
             offerModel.OnBuy();
 
             var evnt = new OfferBuySuccessEvent(offerModel);
-            GameController.EventBus.Fire(evnt);
+            GameController.Instance.EventBus.Fire(evnt);
         }
     }
 }

@@ -59,7 +59,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnBuyButtonClick()
         {
-            GameController.ShopService.TryBuy(_offerModel);
+            GameController.Instance.ShopService.TryBuy(_offerModel);
         }
     }
 }

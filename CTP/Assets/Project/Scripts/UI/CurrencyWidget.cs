@@ -14,12 +14,12 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnEnable()
         {
-            GameController.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameController.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         private void OnDisable()
         {
-            GameController.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameController.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         public void Init()
@@ -29,7 +29,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void Refresh()
         {
-            _currencyValueText.text = GameController.User.Currency.ToString();
+            _currencyValueText.text = GameController.Instance.User.Currency.ToString();
         }
 
         private async Task OnCurrencyChangeEvent(CurrencyChangeEvent evnt)
