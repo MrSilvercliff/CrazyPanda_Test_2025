@@ -385,6 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6321632041993584182}
   - component: {fileID: 1891953481616760281}
+  - component: {fileID: 3616119538840648068}
   m_Layer: 5
   m_Name: '[Widget] OfferItemsCategory'
   m_TagString: Untagged
@@ -433,6 +434,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3616119538840648068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377120781017539787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16704e25fcd426b40af43e1798bcbbb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.OfferCategoryWidget
+  _titleText: {fileID: 8923016382938351218}
+  _offerWidgetsContainer: {fileID: 1973883355525023544}
+  _offerWidgetPrefab: {fileID: 4751391030147979345}
 --- !u!1 &7910236161452414220
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,3 +783,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6340228187141772476, guid: 86e5a5a9132622e47a9a552401ecff6d, type: 3}
   m_PrefabInstance: {fileID: 5366325010654125030}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4751391030147979345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 831284518586926007, guid: 86e5a5a9132622e47a9a552401ecff6d, type: 3}
+  m_PrefabInstance: {fileID: 5366325010654125030}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4662fe93bb451e24a8bf09f8c805b97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.OfferWidget

@@ -665,6 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6340228187141772476}
+  - component: {fileID: 831284518586926007}
   m_Layer: 5
   m_Name: '[Widget] OfferItem'
   m_TagString: Untagged
@@ -692,6 +693,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 470}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &831284518586926007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252369865256833377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4662fe93bb451e24a8bf09f8c805b97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.OfferWidget
+  _titleText: {fileID: 7208407141482286298}
+  _backImage: {fileID: 7993398579312775904}
+  _iconImage: {fileID: 1936631928333786896}
+  _priceText: {fileID: 7549976308878987833}
 --- !u!1 &8733295728508874479
 GameObject:
   m_ObjectHideFlags: 0
