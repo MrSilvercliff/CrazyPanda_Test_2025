@@ -12,12 +12,14 @@ namespace RedPanda.Project.Scripts.Game
         public static GameController Instance { get; private set; }
 
         public IDOTweenAnimationsConfig DOTweenAnimationsConfig => _doTweenAnimationsConfig;
+        public IShopConfig ShopConfig => _shopConfig;
 
         public IUserModel User { get; private set; }
         public IShopService ShopService { get; private set; }
         public IEventBusAsync EventBus { get; private set; }
 
         [SerializeField] private DOTweenAnimationsConfig _doTweenAnimationsConfig;
+        [SerializeField] private ShopConfig _shopConfig;
         [SerializeField] private ShopView _shopView;
 
         private void Awake()

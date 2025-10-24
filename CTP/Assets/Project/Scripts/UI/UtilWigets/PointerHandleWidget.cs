@@ -6,7 +6,7 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
 {
     public class PointerHandleWidget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
-        [SerializeField] private Button _button;
+        [SerializeField] protected Button _button;
 
         protected bool _pointerDownHandled;
         protected bool _pointerEntered;
