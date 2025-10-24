@@ -4,8 +4,9 @@ namespace RedPanda.Project
 {
     public class Game : MonoBehaviour
     {
-        public static UserModel User { get; private set; } = new UserModel();
-        public static ShopModel Shop { get; private set; } = new ShopModel();
+        public static UserModel User { get; private set; }
+        public static ShopModel Shop { get; private set; }
+        public static IShopService ShopService { get; private set; }
 
         [SerializeField] private ShopView _shopView;
 
@@ -13,6 +14,7 @@ namespace RedPanda.Project
         {
             User = new UserModel();
             Shop = new ShopModel();
+            ShopService = new ShopService();
         }
 
         private void Start()
