@@ -1,25 +1,28 @@
 using System;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Model
 {
     public sealed class OfferModel
     {
         public OfferConfig Config { get; private set; }
-        public int BuyCount { get; private set; }
+
+        private int _buyCount;
 
         public OfferModel(OfferConfig config)
         {
             Config = config;
+            _buyCount = 0;
         }
 
-        public void Buy()
+        public void OnBuy()
         {
-            if (BuyCount >= Config.BuyLimit)
-            {
-                throw new InvalidOperationException();
-            }
+            _buyCount++;
+        }
 
-            BuyCount++;
+        public bool IsBuyLimitReached()
+        { 
+            var result = _buyCount >= Config.BuyLimit;
+            return result;
         }
     }
 }
