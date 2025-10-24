@@ -20,7 +20,8 @@ namespace RedPanda.Project
 
         private void Update()
         {
-            User.Update();
+            var deltaTime = Time.deltaTime;
+            User.OnUpdate(deltaTime);
         }
     }
 }
