@@ -58,6 +58,9 @@ namespace RedPanda.Project
             if (_isDragging)
                 return;
 
+            if (!_button.interactable)
+                return;
+
             DOTweenHelper.KillSequence(_currentSequence);
             PrepareScaleDownSequence();
             _currentSequence.Play();
@@ -66,6 +69,9 @@ namespace RedPanda.Project
         private void PlayScaleUpSequence()
         {
             if (_isDragging)
+                return;
+
+            if (!_button.interactable)
                 return;
 
             DOTweenHelper.KillSequence(_currentSequence);
