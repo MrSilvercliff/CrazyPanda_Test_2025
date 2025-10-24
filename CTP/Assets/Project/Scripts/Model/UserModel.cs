@@ -1,4 +1,6 @@
+using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Interfaces;
+using RedPanda.Project.Scripts.UI.Events;
 using System;
 
 namespace RedPanda.Project.Scripts.Model
@@ -24,6 +26,9 @@ namespace RedPanda.Project.Scripts.Model
 
             if (Currency >= CurrencyMaxLimit)
                 Currency = CurrencyMaxLimit;
+
+            var evnt = new CurrencyChangeEvent();
+            GameController.EventBus.Fire(evnt);
         }
 
         public void SpendCurrency(int delta)
@@ -32,6 +37,9 @@ namespace RedPanda.Project.Scripts.Model
 
             if (Currency < 0)
                 Currency = 0;
+
+            var evnt = new CurrencyChangeEvent();
+            GameController.EventBus.Fire(evnt);
         }
 
         public bool HasCurrency(int amount)
