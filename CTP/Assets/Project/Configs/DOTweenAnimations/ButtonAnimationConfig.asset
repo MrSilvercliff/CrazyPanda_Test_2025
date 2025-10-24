@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.ButtonAnimationConfig
   _buttonContentScale: 0.9
   _pointerDownScaleDuration: 0.2
-  _pointerUpScaleDuration: 0.2
+  _pointerUpScaleDuration: 0.1
