@@ -10,16 +10,16 @@ namespace RedPanda.Project
         {
             var offerConfigs = new List<OfferConfig>()
             {
-                new ("Common chest", OfferType.Chest, OfferRarity.Common, 10),
-                new ("Rare chest", OfferType.Chest, OfferRarity.Rare, 30, 2),
-                new ("Epic chest", OfferType.Chest, OfferRarity.Epic, 100, 1),
-                new ("Сommon inapp", OfferType.InApp, OfferRarity.Common, 15),
-                new ("Сommon inapp", OfferType.InApp, OfferRarity.Common, 25, 2),
-                new ("Rare inapp", OfferType.InApp, OfferRarity.Rare, 65, 1),
-                new ("Common spec", OfferType.Special, OfferRarity.Common, 25),
-                new ("Rare spec", OfferType.Special, OfferRarity.Rare, 100, 2),
-                new ("Common spec", OfferType.Special, OfferRarity.Common, 35),
-                new ("Epic spec", OfferType.Special, OfferRarity.Epic, 40, 1)
+                new ("offer_chest_common", "Common chest", OfferType.Chest, OfferRarity.Common, 10),
+                new ("offer_chest_rare", "Rare chest", OfferType.Chest, OfferRarity.Rare, 30, 2),
+                new ("offer_chest_epic", "Epic chest", OfferType.Chest, OfferRarity.Epic, 100, 1),
+                new ("offer_inapp_common_15", "Сommon inapp", OfferType.InApp, OfferRarity.Common, 15),
+                new ("offer_inapp_common_2", "Сommon inapp", OfferType.InApp, OfferRarity.Common, 25, 2),
+                new ("offer_inapp_rare", "Rare inapp", OfferType.InApp, OfferRarity.Rare, 65, 1),
+                new ("offer_spec_common_25", "Common spec", OfferType.Special, OfferRarity.Common, 25),
+                new ("offer_spec_rare", "Rare spec", OfferType.Special, OfferRarity.Rare, 100, 2),
+                new ("offer_spec_common_35", "Common spec", OfferType.Special, OfferRarity.Common, 35),
+                new ("offer_spec_epic", "Epic spec", OfferType.Special, OfferRarity.Epic, 40, 1)
             };
 
             var offerModels = new List<OfferModel>();
