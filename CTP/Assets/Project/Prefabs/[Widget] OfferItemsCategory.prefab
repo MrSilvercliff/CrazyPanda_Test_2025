@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 6734733338693178428}
   - component: {fileID: 5662073584439252796}
   - component: {fileID: 9016986150079026893}
-  - component: {fileID: 8618868734897967243}
+  - component: {fileID: 7422881736325799612}
   m_Layer: 5
   m_Name: '[Widget] HybridScrollRectDrag_And_PointerHandle'
   m_TagString: Untagged
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.HybridScrollRectDragPointerHandleWidget
   _hybridScrollRectDragWidget: {fileID: 9016986150079026893}
-  _pointerHandleDragDetectWidget: {fileID: 8618868734897967243}
+  _pointerHandleDragDetectWidget: {fileID: 7422881736325799612}
 --- !u!114 &9016986150079026893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   _horizontalScrollRect: {fileID: 4897402976575346291}
   _verticalScrollRect: {fileID: 0}
   _dragDeltaThreshold: 2
---- !u!114 &8618868734897967243
+--- !u!114 &7422881736325799612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,10 +364,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2094188764605925221}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cc882871f868c4f8c5a9132caf5dcd, type: 3}
+  m_Script: {fileID: 11500000, guid: 063637963164f35468d2e93ee9c20f73, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.PointerHandleDragDetectWidget
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.PointerHandleDragDetectWidgetScaleAnimated
   _button: {fileID: 733416456986814215}
+  _contentToScale: {fileID: 5012882115296545728}
 --- !u!1 &3346793789356322734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,3 +1042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4662fe93bb451e24a8bf09f8c805b97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.OfferWidget
+--- !u!224 &5012882115296545728 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1146255798016249894, guid: 86e5a5a9132622e47a9a552401ecff6d, type: 3}
+  m_PrefabInstance: {fileID: 5366325010654125030}
+  m_PrefabAsset: {fileID: 0}
