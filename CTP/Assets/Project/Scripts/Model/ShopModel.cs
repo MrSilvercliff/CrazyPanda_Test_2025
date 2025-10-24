@@ -5,6 +5,7 @@ namespace RedPanda.Project
     public sealed class ShopModel
     {
         public IReadOnlyList<OfferModel> Offers { get; }
+        public IReadOnlyDictionary<OfferType, IReadOnlyList<OfferModel>> OffersByOfferType { get; }
 
         public ShopModel()
         {
@@ -23,10 +24,20 @@ namespace RedPanda.Project
             };
 
             var offerModels = new List<OfferModel>();
+            var offerModelsByOfferType = new Dictionary<OfferType, List<OfferModel>>();
 
             foreach (var offerData in offerConfigs)
             {
-                offerModels.Add(new OfferModel(offerData));
+                var offerType = offerData.Type;
+                var offerModel = new OfferModel(offerData);
+                offerModels.Add(offerModel);
+
+                if (!offerModelsByOfferType.TryGetValue(offerType, out var list))
+                { 
+                    list = new List<OfferModel>();
+                    offerModelsByOfferType[offerType] = list;
+                }
+                list.Add(offerModel);
             }
 
             Offers = offerModels;
