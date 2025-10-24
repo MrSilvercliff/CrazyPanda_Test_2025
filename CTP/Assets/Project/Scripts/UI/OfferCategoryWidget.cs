@@ -25,6 +25,11 @@ namespace RedPanda.Project.Scripts.UI
             RefreshOfferWidgets(offerModels);
         }
 
+        public void OnOfferBuy(OfferModel offerModel)
+        {
+            CheckOfferBuyLimit(offerModel);
+        }
+
         private void RefreshTitle(OfferType offerType)
         {
             _titleText.text = offerType.ToString();
@@ -46,6 +51,23 @@ namespace RedPanda.Project.Scripts.UI
                 newWidget.gameObject.SetActive(true);
                 _widgets[offerModel] = newWidget;
             }
+        }
+
+        private void CheckOfferBuyLimit(OfferModel offerModel)
+        {
+            if (!_widgets.TryGetValue(offerModel, out var widget))
+                return;
+
+            var isBuyLimitReached = offerModel.IsBuyLimitReached();
+
+            if (!isBuyLimitReached)
+                return;
+
+            /*
+             * Better user object pooling and return widget to pool
+             * But dont have so much time, so heck it x2
+             */
+            widget.gameObject.SetActive(false);
         }
     }
 }

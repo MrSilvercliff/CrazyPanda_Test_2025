@@ -1,6 +1,10 @@
+using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Interfaces;
 using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.UI.Events;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace RedPanda.Project.Scripts.UI
@@ -12,6 +16,16 @@ namespace RedPanda.Project.Scripts.UI
         [SerializeField] private OfferCategoryWidget _categoryWidgetPrefab;
 
         private Dictionary<OfferType, OfferCategoryWidget> _offerCategoryWidgets;
+
+        private void OnEnable()
+        {
+            GameController.EventBus.Subscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
+        }
+
+        private void OnDisable()
+        {
+            GameController.EventBus.UnSubscribe<OfferBuySuccessEvent>(OnOfferBuySuccessEvent);
+        }
 
         public void Init()
         {
@@ -27,7 +41,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshCategoryWidgets()
         {
-            var offersByType = Game.Shop.OffersByOfferType;
+            var offersByType = GameController.Shop.OffersByOfferType;
 
             foreach (var offerByTypeItem in offersByType)
             {
@@ -47,6 +61,15 @@ namespace RedPanda.Project.Scripts.UI
                 newWidget.gameObject.SetActive(true);
                 _offerCategoryWidgets[offerType] = newWidget;
             }
+        }
+
+        private async Task OnOfferBuySuccessEvent(OfferBuySuccessEvent evnt)
+        {
+            var offerModel = evnt.OfferModel;
+            var offerType = offerModel.Config.Type;
+
+            if (_offerCategoryWidgets.TryGetValue(offerType, out var widget))
+                widget.OnOfferBuy(offerModel);
         }
     }
 }
