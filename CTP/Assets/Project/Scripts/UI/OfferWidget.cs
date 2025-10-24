@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +11,14 @@ namespace RedPanda.Project
         [SerializeField] private Image _backImage;
         [SerializeField] private Image _iconImage;
         [SerializeField] private TMP_Text _priceText;
+        [SerializeField] private Button _buyButton;
 
         private OfferModel _offerModel;
+
+        private void Awake()
+        {
+            _buyButton.onClick.AddListener(OnBuyButtonClick);
+        }
 
         public void Setup(OfferModel offerModel)
         {
@@ -46,6 +53,11 @@ namespace RedPanda.Project
         private void RefreshPriceText()
         {
             _priceText.text = $"x{_offerModel.Config.Cost}";
+        }
+
+        private void OnBuyButtonClick()
+        {
+            Game.ShopService.TryBuy(_offerModel);
         }
     }
 }
