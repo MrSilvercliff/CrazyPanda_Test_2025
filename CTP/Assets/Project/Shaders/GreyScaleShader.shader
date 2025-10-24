@@ -1,6 +1,12 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+/*
+Get this greyScale shader from here:
+https://discussions.unity.com/t/sprite-shader-with-greyscale/525776/10
+Post from @vinipc in Jan 2018
+I'm suck in shaders :(
+*/
 
-Shader "Custom/Greyscale"
+Shader "Custom/GreyScale"
 {
     Properties
     {
