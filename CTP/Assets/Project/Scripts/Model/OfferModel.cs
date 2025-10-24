@@ -12,13 +12,8 @@ namespace RedPanda.Project
             Config = config;
         }
 
-        public void Buy()
-        {
-            if (BuyCount >= Config.BuyLimit)
-            {
-                throw new InvalidOperationException();
-            }
-
+        public void OnBuy()
+        { 
             BuyCount++;
         }
     }
