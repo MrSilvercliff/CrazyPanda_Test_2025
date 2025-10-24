@@ -1,9 +1,10 @@
+using RedPanda.Project.Scripts.Model;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.UI
 {
     public class OfferWidget : MonoBehaviour
     {
@@ -38,16 +39,16 @@ namespace RedPanda.Project
         }
 
         private void RefreshTitle()
-        { 
+        {
             _titleText.text = _offerModel.Config.Title;
         }
 
         private void RefreshBackImage()
-        { 
+        {
         }
 
         private void RefreshIcon()
-        { 
+        {
         }
 
         private void RefreshPriceText()

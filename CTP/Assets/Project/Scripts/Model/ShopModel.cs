@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Model
 {
     public sealed class ShopModel
     {
@@ -35,7 +35,7 @@ namespace RedPanda.Project
                 List<OfferModel> list;
 
                 if (!offerModelsByOfferType.ContainsKey(offerType))
-                { 
+                {
                     list = new List<OfferModel>();
                     offerModelsByOfferType[offerType] = list;
                 }
@@ -49,7 +49,7 @@ namespace RedPanda.Project
                 var list = (List<OfferModel>)offerModelList;
                 list.Sort((a, b) => b.Config.Rarity.CompareTo(a.Config.Rarity));
             }
-                
+
 
             Offers = offerModels;
             OffersByOfferType = offerModelsByOfferType;

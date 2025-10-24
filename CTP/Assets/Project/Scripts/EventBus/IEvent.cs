@@ -1,4 +1,4 @@
-﻿namespace ZerglingUnityPlugins.Tools.Scripts.EventBus
+﻿namespace RedPanda.Project.Scripts.EventBus
 {
     public interface IEvent
     {

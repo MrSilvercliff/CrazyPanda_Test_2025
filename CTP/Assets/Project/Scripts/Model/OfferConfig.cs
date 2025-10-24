@@ -1,4 +1,4 @@
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Model
 {
     public class OfferConfig
     {

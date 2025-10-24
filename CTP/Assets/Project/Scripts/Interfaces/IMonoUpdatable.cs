@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Interfaces
 {
     public interface IMonoUpdatable
     {

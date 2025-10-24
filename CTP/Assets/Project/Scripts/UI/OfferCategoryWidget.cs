@@ -1,8 +1,10 @@
+using RedPanda.Project.Scripts.Interfaces;
+using RedPanda.Project.Scripts.Model;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.UI
 {
     public class OfferCategoryWidget : MonoBehaviour, IInitializable
     {
@@ -24,12 +26,12 @@ namespace RedPanda.Project
         }
 
         private void RefreshTitle(OfferType offerType)
-        { 
+        {
             _titleText.text = offerType.ToString();
         }
 
         private void RefreshOfferWidgets(IReadOnlyList<OfferModel> offerModels)
-        { 
+        {
             foreach (var offerModel in offerModels)
             {
                 if (_widgets.ContainsKey(offerModel))

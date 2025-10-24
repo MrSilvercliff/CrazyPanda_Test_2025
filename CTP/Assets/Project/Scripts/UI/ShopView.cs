@@ -1,7 +1,9 @@
+using RedPanda.Project.Scripts.Interfaces;
+using RedPanda.Project.Scripts.Model;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.UI
 {
     public class ShopView : MonoBehaviour, IInitializable
     {
@@ -19,7 +21,7 @@ namespace RedPanda.Project
         }
 
         private void Refresh()
-        { 
+        {
             RefreshCategoryWidgets();
         }
 
@@ -32,7 +34,7 @@ namespace RedPanda.Project
                 var offerType = offerByTypeItem.Key;
                 var offerModels = offerByTypeItem.Value;
 
-                if (_offerCategoryWidgets.ContainsKey(offerType)) 
+                if (_offerCategoryWidgets.ContainsKey(offerType))
                     continue;
 
                 /*

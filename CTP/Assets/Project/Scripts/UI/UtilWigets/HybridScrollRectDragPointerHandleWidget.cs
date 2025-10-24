@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.UI.UtilWigets
 {
     public class HybridScrollRectDragPointerHandleWidget : MonoBehaviour
     {

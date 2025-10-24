@@ -1,6 +1,9 @@
+using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.Services;
+using RedPanda.Project.Scripts.UI;
 using UnityEngine;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Game
 {
     public class Game : MonoBehaviour
     {

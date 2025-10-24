@@ -1,6 +1,6 @@
 using System;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Model
 {
     public sealed class OfferModel
     {
@@ -13,7 +13,7 @@ namespace RedPanda.Project
         }
 
         public void OnBuy()
-        { 
+        {
             BuyCount++;
         }
     }

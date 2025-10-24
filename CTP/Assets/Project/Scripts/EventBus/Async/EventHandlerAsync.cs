@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace ZerglingUnityPlugins.Tools.Scripts.EventBus.Async
+namespace RedPanda.Project.Scripts.EventBus.Async
 {
     public interface IEventHandlerAsync<T> : IEventHandlerBase
     {
@@ -22,7 +22,7 @@ namespace ZerglingUnityPlugins.Tools.Scripts.EventBus.Async
         private bool _isFiring;
 
         public EventHandlerAsync()
-        { 
+        {
             _callbacks = new HashSet<Func<T, Task>>();
             _callbacksToAdd = new HashSet<Func<T, Task>>();
             _callbacksToRemove = new HashSet<Func<T, Task>>();
@@ -58,7 +58,7 @@ namespace ZerglingUnityPlugins.Tools.Scripts.EventBus.Async
             {
                 _isFiring = true;
 
-                await Task.WhenAll(_callbacks.Select(callback => ((Func<T, Task>)callback)?.Invoke(evnt)));
+                await Task.WhenAll(_callbacks.Select(callback => callback?.Invoke(evnt)));
 
                 _isFiring = false;
 
@@ -74,7 +74,7 @@ namespace ZerglingUnityPlugins.Tools.Scripts.EventBus.Async
                         _callbacks.Remove(callback);
                 }
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Debug.LogError(e.Message);
                 Debug.LogError(e.StackTrace);

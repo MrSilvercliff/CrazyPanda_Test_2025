@@ -1,6 +1,7 @@
+using RedPanda.Project.Scripts.Interfaces;
 using System;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.Model
 {
     public sealed class UserModel : IMonoUpdatable
     {

@@ -1,9 +1,8 @@
-﻿using ZerglingUnityPlugins.Tools.Scripts.EventBus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ZerglingUnityPlugins.Tools.Scripts.EventBus.Async
+namespace RedPanda.Project.Scripts.EventBus.Async
 {
     public interface IEventBusAsync
     {

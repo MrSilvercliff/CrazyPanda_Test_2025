@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace RedPanda.Project
+namespace RedPanda.Project.Scripts.UI.UtilWigets
 {
     public class HybridScrollRectDragWidget : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
