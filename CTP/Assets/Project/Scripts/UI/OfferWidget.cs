@@ -14,6 +14,7 @@ namespace RedPanda.Project.Scripts.UI
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private Image _backImage;
         [SerializeField] private Image _iconImage;
+        [SerializeField] private Image _priceIconImage;
         [SerializeField] private TMP_Text _priceText;
         [SerializeField] private Button _buyButton;
 
@@ -57,11 +58,12 @@ namespace RedPanda.Project.Scripts.UI
             RefreshBackImage(raritySettings);
             RefreshIcon();
             RefreshPriceText();
-            RefreshHasCurrency(shopConfig, raritySettings);
+            RefreshHasCurrency();
         }
 
         private void RefreshTitle(ShopConfig.RaritySettingsItem raritySettingsItem)
         {
+            _titleText.fontMaterial = raritySettingsItem.TitleFontMaterial;
             _titleText.text = _offerModel.Config.Title;
         }
 
@@ -79,20 +81,27 @@ namespace RedPanda.Project.Scripts.UI
             _priceText.text = $"x{_offerModel.Config.Cost}";
         }
 
-        private void RefreshHasCurrency(IShopConfig shopConfig, ShopConfig.RaritySettingsItem raritySettingsItem)
+        private void RefreshHasCurrency()
         {
+            var shopConfig = GameController.Instance.ShopConfig;
             var hasCurrency = GameController.Instance.User.HasCurrency(_offerModel.Config.Cost);
             _buyButton.interactable = hasCurrency;
 
             if (hasCurrency)
             {
-                _titleText.fontMaterial = raritySettingsItem.TitleFontMaterial;
-                _priceText.fontMaterial = shopConfig.PriceTextFontMaterial;
+                _titleText.color = Color.white;
+                _backImage.material = null;
+                _iconImage.material = null;
+                _priceIconImage.material = null;
+                _priceText.color = shopConfig.PriceTextFontColor;
             }
             else
             {
-                _titleText.fontMaterial = shopConfig.GrayScaleFontMaterial;
-                _priceText.fontMaterial = shopConfig.GrayScaleFontMaterial;
+                _titleText.color = shopConfig.GreyScaleFontColor;
+                _backImage.material = shopConfig.GreyScaleMaterial;
+                _iconImage.material = shopConfig.GreyScaleMaterial;
+                _priceIconImage.material = shopConfig.GreyScaleMaterial;
+                _priceText.color = shopConfig.GreyScaleFontColor;
             }
         }
 
@@ -103,9 +112,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private async Task OnCurrencyChangeEvent(CurrencyChangeEvent @event)
         {
-            var shopConfig = GameController.Instance.ShopConfig;
-            var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
-            RefreshHasCurrency(shopConfig, raritySettings);
+            RefreshHasCurrency();
         }
     }
 }

@@ -22,5 +22,6 @@ MonoBehaviour:
   - _rarity: 3
     _backSprite: {fileID: 21300000, guid: 54eacff0100aa6e41bb852cf6af60702, type: 3}
     _titleFontMaterial: {fileID: 2100000, guid: f2898370a07c11d4ba6f099e5cb66a97, type: 2}
-  _priceTextFontMaterial: {fileID: 2100000, guid: a694fd823c0a4b149854a06560dce226, type: 2}
-  _grayScaleFontMaterial: {fileID: 2100000, guid: a4be1a8ea67f2f440807e4599298460f, type: 2}
+  _greyScaleMaterial: {fileID: 2100000, guid: 0e86b35550c00ee4987742f6fa769431, type: 2}
+  _priceTextFontColor: {r: 0.21960786, g: 0.10980393, b: 0.30588236, a: 1}
+  _greyScaleFontColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}

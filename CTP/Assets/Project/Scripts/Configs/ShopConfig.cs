@@ -7,19 +7,22 @@ namespace RedPanda.Project
     public interface IShopConfig
     { 
         ShopConfig.RaritySettingsItem GetRaritySettings(OfferRarity offerRarity);
-        Material PriceTextFontMaterial { get; }
-        Material GrayScaleFontMaterial { get; }
+        Material GreyScaleMaterial { get; }
+        Color PriceTextFontColor { get; }
+        Color GreyScaleFontColor { get; }
     }
 
     [CreateAssetMenu(fileName = "RarityConfig", menuName = "Configs/RarityConfig")]
     public class ShopConfig : ScriptableObject, IShopConfig
     {
-        public Material PriceTextFontMaterial => _priceTextFontMaterial;
-        public Material GrayScaleFontMaterial => _grayScaleFontMaterial;
+        public Material GreyScaleMaterial => _greyScaleMaterial;
+        public Color PriceTextFontColor => _priceTextFontColor;
+        public Color GreyScaleFontColor => _greyScaleFontColor;
 
         [SerializeField] private RaritySettingsItem[] _raritySettingsItems;
-        [SerializeField] private Material _priceTextFontMaterial;
-        [SerializeField] private Material _grayScaleFontMaterial;
+        [SerializeField] private Material _greyScaleMaterial;
+        [SerializeField] private Color _priceTextFontColor;
+        [SerializeField] private Color _greyScaleFontColor;
 
         public RaritySettingsItem GetRaritySettings(OfferRarity offerRarity)
         {

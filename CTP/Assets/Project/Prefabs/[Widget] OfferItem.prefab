@@ -381,7 +381,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 31, y: -18}
-  m_SizeDelta: {x: 275, y: 150}
+  m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &2647895854037777860
 CanvasRenderer:
@@ -588,14 +588,14 @@ MonoBehaviour:
   m_text: x350
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c213223f8c0bfe84c8ee82d502c342ce, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: a694fd823c0a4b149854a06560dce226, type: 2}
+  m_sharedMaterial: {fileID: 3474113822662488546, guid: c213223f8c0bfe84c8ee82d502c342ce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283309112
+  m_fontColor: {r: 0.21960784, g: 0.10980392, b: 0.30588236, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -709,6 +709,7 @@ MonoBehaviour:
   _titleText: {fileID: 7208407141482286298}
   _backImage: {fileID: 7993398579312775904}
   _iconImage: {fileID: 1936631928333786896}
+  _priceIconImage: {fileID: 9117869972566722524}
   _priceText: {fileID: 7549976308878987833}
   _buyButton: {fileID: 4635499567516400865}
 --- !u!1 &8686608027747084652
