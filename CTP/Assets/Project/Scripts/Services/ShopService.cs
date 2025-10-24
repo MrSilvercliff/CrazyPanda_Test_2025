@@ -1,4 +1,6 @@
+using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.UI.Events;
 using UnityEngine;
 
 namespace RedPanda.Project.Scripts.Services
@@ -12,16 +14,16 @@ namespace RedPanda.Project.Scripts.Services
     {
         public void TryBuy(OfferModel offerModel)
         {
-            var canBuyResult = CanBuyOffer(offerModel);
+            var buyLimitReached = offerModel.IsBuyLimitReached();
 
-            if (!canBuyResult)
+            if (buyLimitReached)
             {
-                Debug.LogError($"CANT BUY OFFER, BUY LIMIT!");
+                Debug.LogError($"CANT BUY OFFER, BUY LIMIT REACHED!");
                 return;
             }
 
             var offerCost = offerModel.Config.Cost;
-            var hasCurrency = Game.User.HasCurrency(offerCost);
+            var hasCurrency = GameController.User.HasCurrency(offerCost);
 
             if (!hasCurrency)
             {
@@ -29,16 +31,13 @@ namespace RedPanda.Project.Scripts.Services
                 return;
             }
 
-            Game.User.SpendCurrency(offerCost);
-            offerModel.OnBuy();
-        }
+            Debug.Log($"Buying offer [{offerModel.Config.Id}] [{offerModel.Config.Title}]");
 
-        private bool CanBuyOffer(OfferModel offerModel)
-        {
-            var buyCount = offerModel.BuyCount;
-            var buyMaxCount = offerModel.Config.BuyLimit;
-            var result = buyCount < buyMaxCount;
-            return result;
+            GameController.User.SpendCurrency(offerCost);
+            offerModel.OnBuy();
+
+            var evnt = new OfferBuySuccessEvent(offerModel);
+            GameController.EventBus.Fire(evnt);
         }
     }
 }
