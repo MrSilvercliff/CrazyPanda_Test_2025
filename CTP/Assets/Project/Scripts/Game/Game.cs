@@ -7,6 +7,8 @@ namespace RedPanda.Project
         public static UserModel User { get; private set; } = new UserModel();
         public static ShopModel Shop { get; private set; } = new ShopModel();
 
+        [SerializeField] private ShopView _shopView;
+
         private void Awake()
         {
             User = new UserModel();
@@ -15,7 +17,8 @@ namespace RedPanda.Project
 
         private void Start()
         {
-            Debug.LogWarning("Show ShopView from here");
+            _shopView.Init();
+            _shopView.gameObject.SetActive(true);
         }
 
         private void Update()
