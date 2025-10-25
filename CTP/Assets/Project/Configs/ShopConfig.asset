@@ -16,12 +16,15 @@ MonoBehaviour:
   - _rarity: 1
     _backSprite: {fileID: 21300000, guid: f34cd001841e7fb478eeef5bdd8e2a1d, type: 3}
     _titleFontMaterial: {fileID: 2100000, guid: 78f75a85b1b44c445bd23282a5293c94, type: 2}
+    _titleFontColor: {r: 0.039215688, g: 0.50980395, b: 0.8000001, a: 1}
   - _rarity: 2
     _backSprite: {fileID: 21300000, guid: b26c30ef7d260b34996f74567bc0e09b, type: 3}
     _titleFontMaterial: {fileID: 2100000, guid: b9ad06eac272f2f4aa0507188af91704, type: 2}
+    _titleFontColor: {r: 0.7960785, g: 0.3137255, b: 0.92549026, a: 1}
   - _rarity: 3
     _backSprite: {fileID: 21300000, guid: 54eacff0100aa6e41bb852cf6af60702, type: 3}
     _titleFontMaterial: {fileID: 2100000, guid: f2898370a07c11d4ba6f099e5cb66a97, type: 2}
+    _titleFontColor: {r: 0.9843138, g: 0.6627451, b: 0.24705884, a: 1}
   _greyScaleMaterial: {fileID: 2100000, guid: 0e86b35550c00ee4987742f6fa769431, type: 2}
   _priceTextFontColor: {r: 0.21960786, g: 0.10980393, b: 0.30588236, a: 1}
   _greyScaleFontColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}

@@ -64,6 +64,7 @@ namespace RedPanda.Project.Scripts.UI
         private void RefreshTitle(ShopConfig.RaritySettingsItem raritySettingsItem)
         {
             _titleText.fontMaterial = raritySettingsItem.TitleFontMaterial;
+            _titleText.color = raritySettingsItem.TitleFontColor;
             _titleText.text = _offerModel.Config.Title;
         }
 
@@ -89,12 +90,13 @@ namespace RedPanda.Project.Scripts.UI
         private void RefreshHasCurrency()
         {
             var shopConfig = GameCore.Instance.ShopConfig;
+            var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
             var hasCurrency = GameCore.Instance.User.HasCurrency(_offerModel.Config.Cost);
             _buyButton.interactable = hasCurrency;
 
             if (hasCurrency)
             {
-                _titleText.color = Color.white;
+                _titleText.color = raritySettings.TitleFontColor;
                 _backImage.material = null;
                 _iconImage.material = null;
                 _priceIconImage.material = null;
