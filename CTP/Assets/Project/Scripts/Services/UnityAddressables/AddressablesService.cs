@@ -1,4 +1,5 @@
 using RedPanda.Project.Scripts.UI;
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -9,7 +10,7 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
     { 
         Task<ShopView> LoadShopViewAsync(AssetReferenceGameObject assetReference);
         Task<GameObject> LoadGameObjectAsync(AssetReferenceGameObject assetReference);
-        Task<Sprite> LoadSpriteAsync(AssetReferenceSprite assetReference);
+        Task<Sprite> LoadSpriteAsync(AssetReference assetReference, Action<Sprite> loadCallback);
     }
 
     public class AddressablesService : IAddressablesService
@@ -36,19 +37,28 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
             return result;
         }
 
-        public async Task<Sprite> LoadSpriteAsync(AssetReferenceSprite assetReference)
+        public async Task<Sprite> LoadSpriteAsync(AssetReference assetReference, Action<Sprite> loadCallback)
         {
             var result = await LoadAsync<Sprite>(assetReference);
+            loadCallback.Invoke(result);
             return result;
         }
 
         private async Task<T> LoadAsync<T>(AssetReference assetReference)
         {
             var guid = assetReference.AssetGUID;
-            var tryResult = _repository.TryGet<T>(guid, out var result);
+            var tryResult = _repository.TryGet(guid, out var asyncOperationHandle);
+
+            T result = default(T);
 
             if (tryResult)
+            {
+                if (!asyncOperationHandle.IsDone)
+                    await asyncOperationHandle.Task;
+
+                result = (T)asyncOperationHandle.Result;
                 return result;
+            }
 
             result = await _loadService.LoadAsync<T>(assetReference);
             return result;

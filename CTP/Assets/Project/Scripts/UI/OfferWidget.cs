@@ -74,6 +74,11 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshIcon()
         {
+            var iconId = _offerModel.Config.IconId;
+            var spriteAssetRef = GameCore.Instance.AddressablesConfig.SpriteConfig.GetOfferIconByName(iconId);
+
+            if (spriteAssetRef != null)
+                GameCore.Instance.AddressablesService.LoadSpriteAsync(spriteAssetRef, (sprite) => { _iconImage.sprite = sprite; });
         }
 
         private void RefreshPriceText()

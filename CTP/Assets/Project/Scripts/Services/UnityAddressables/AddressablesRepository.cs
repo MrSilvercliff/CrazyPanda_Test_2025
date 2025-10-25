@@ -8,7 +8,7 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
     {
         IReadOnlyCollection<AsyncOperationHandle> GetAll();
 
-        bool TryGet<T>(string guid, out T result);
+        bool TryGet(string guid, out AsyncOperationHandle asyncOperationHandle);
         void Add(string guid, AsyncOperationHandle asyncOperationHandle);
         void Remove(string guid);
     }
@@ -28,15 +28,10 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
             return result;
         }
 
-        public bool TryGet<T>(string guid, out T result)
+        public bool TryGet(string guid, out AsyncOperationHandle asyncOperationHandle)
         {
-            result = default(T);
-            var tryResult = _operationHandleByGUID.TryGetValue(guid, out var asyncOperationHandle);
-
-            if (!tryResult)
-                return false;
-
-            return true;
+            var result = _operationHandleByGUID.TryGetValue(guid, out asyncOperationHandle);
+            return result;
         }
 
         public void Add(string guid, AsyncOperationHandle asyncOperationHandle)

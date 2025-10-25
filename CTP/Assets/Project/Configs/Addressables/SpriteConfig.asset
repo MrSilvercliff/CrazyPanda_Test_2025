@@ -13,57 +13,75 @@ MonoBehaviour:
   m_Name: SpriteConfig
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.SpriteConfig
   _offerIcons:
-  - m_AssetGUID: b85a726f648808949b038ab32fda92f5
-    m_SubObjectName: sprite_chest_common
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 8542fa350ce5cd048acec7e0d005c13c
-    m_SubObjectName: sprite_chest_epic
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: fe4221b4225a1374ea055db250ddf794
-    m_SubObjectName: sprite_chest_rare
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 806a30ab725a3064d88865068ac88436
-    m_SubObjectName: sprite_inapp_common
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 4fdb042ae0eafec49b38018e9f2f879e
-    m_SubObjectName: sprite_inapp_epic
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 89c24639d55371f4698762deb10f9325
-    m_SubObjectName: sprite_inapp_rare
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 2bcb85bda0c93b8458c6645f5f374b7f
-    m_SubObjectName: sprite_special_common
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 5be5faba96af13d4191a6652bb3e0a55
-    m_SubObjectName: sprite_special_epic
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 902507cb251b00a4d857054feb8b7ce8
-    m_SubObjectName: sprite_special_rare
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
+  - _name: sprite_chest_common
+    _assetReference:
+      m_AssetGUID: b85a726f648808949b038ab32fda92f5
+      m_SubObjectName: sprite_chest_common
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_chest_epic
+    _assetReference:
+      m_AssetGUID: 8542fa350ce5cd048acec7e0d005c13c
+      m_SubObjectName: sprite_chest_epic
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_chest_rare
+    _assetReference:
+      m_AssetGUID: fe4221b4225a1374ea055db250ddf794
+      m_SubObjectName: sprite_chest_rare
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_inapp_common
+    _assetReference:
+      m_AssetGUID: 806a30ab725a3064d88865068ac88436
+      m_SubObjectName: sprite_inapp_common
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_inapp_epic
+    _assetReference:
+      m_AssetGUID: 4fdb042ae0eafec49b38018e9f2f879e
+      m_SubObjectName: sprite_inapp_epic
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_inapp_rare
+    _assetReference:
+      m_AssetGUID: 89c24639d55371f4698762deb10f9325
+      m_SubObjectName: sprite_inapp_rare
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_special_common
+    _assetReference:
+      m_AssetGUID: 2bcb85bda0c93b8458c6645f5f374b7f
+      m_SubObjectName: sprite_special_common
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_special_epic
+    _assetReference:
+      m_AssetGUID: 5be5faba96af13d4191a6652bb3e0a55
+      m_SubObjectName: sprite_special_epic
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - _name: sprite_special_rare
+    _assetReference:
+      m_AssetGUID: 902507cb251b00a4d857054feb8b7ce8
+      m_SubObjectName: sprite_special_rare
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1

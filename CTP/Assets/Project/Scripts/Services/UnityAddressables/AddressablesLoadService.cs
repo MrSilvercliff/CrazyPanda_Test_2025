@@ -22,6 +22,7 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
         public async Task<T> LoadAsync<T>(AssetReference assetReference)
         {
             var asyncOperationHandle = Addressables.LoadAssetAsync<T>(assetReference);
+            _repository.Add(assetReference.AssetGUID, asyncOperationHandle);
 
             await asyncOperationHandle.Task;
 
@@ -31,6 +32,7 @@ namespace RedPanda.Project.Scripts.Services.UnityAddressables
                 Debug.LogError($"Status = {asyncOperationHandle.Status}");
                 Debug.LogError($"OperationException.Message = {asyncOperationHandle.OperationException.Message}");
                 Debug.LogError($"OperationException.StackTrace = {asyncOperationHandle.OperationException.StackTrace}");
+                _repository.Remove(assetReference.AssetGUID);
                 return default(T);
             }
 
