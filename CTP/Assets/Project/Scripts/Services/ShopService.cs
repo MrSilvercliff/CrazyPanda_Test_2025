@@ -30,8 +30,10 @@ namespace RedPanda.Project.Scripts.Services
                 return;
             }
 
+            var user = GameCore.Instance.User;
+
             var offerCost = offerModel.Config.Cost;
-            var hasCurrency = GameController.Instance.User.HasCurrency(offerCost);
+            var hasCurrency = user.HasCurrency(offerCost);
 
             if (!hasCurrency)
             {
@@ -41,11 +43,11 @@ namespace RedPanda.Project.Scripts.Services
 
             Debug.Log($"Buying offer [{offerModel.Config.Id}] [{offerModel.Config.Title}]");
 
-            GameController.Instance.User.SpendCurrency(offerCost);
+            user.SpendCurrency(offerCost);
             offerModel.OnBuy();
 
             var evnt = new OfferBuySuccessEvent(offerModel);
-            GameController.Instance.EventBus.Fire(evnt);
+            GameCore.Instance.EventBus.Fire(evnt);
         }
     }
 }

@@ -22,12 +22,12 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnEnable()
         {
-            GameController.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameCore.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         private void OnDisable()
         {
-            GameController.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameCore.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         private void Awake()
@@ -51,7 +51,7 @@ namespace RedPanda.Project.Scripts.UI
 
             gameObject.SetActive(true);
 
-            var shopConfig = GameController.Instance.ShopConfig;
+            var shopConfig = GameCore.Instance.ShopConfig;
             var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
 
             RefreshTitle(raritySettings);
@@ -83,8 +83,8 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshHasCurrency()
         {
-            var shopConfig = GameController.Instance.ShopConfig;
-            var hasCurrency = GameController.Instance.User.HasCurrency(_offerModel.Config.Cost);
+            var shopConfig = GameCore.Instance.ShopConfig;
+            var hasCurrency = GameCore.Instance.User.HasCurrency(_offerModel.Config.Cost);
             _buyButton.interactable = hasCurrency;
 
             if (hasCurrency)
@@ -107,7 +107,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnBuyButtonClick()
         {
-            GameController.Instance.ShopService.TryBuy(_offerModel);
+            GameCore.Instance.ShopService.TryBuy(_offerModel);
         }
 
         private async Task OnCurrencyChangeEvent(CurrencyChangeEvent @event)

@@ -81,7 +81,7 @@ namespace RedPanda.Project
 
         private void PrepareScaleDownSequence()
         {
-            var config = GameController.Instance.DOTweenAnimationsConfig.ButtonAnimationConfig;
+            var config = GameCore.Instance.DOTweenAnimationsConfig.ButtonAnimationConfig;
 
             var scaleValue = config.ContentScaleValue;
             var duration = config.ScaleDownDuration;
@@ -92,7 +92,7 @@ namespace RedPanda.Project
 
         private void PrepareScaleUpSequence()
         {
-            var config = GameController.Instance.DOTweenAnimationsConfig.ButtonAnimationConfig;
+            var config = GameCore.Instance.DOTweenAnimationsConfig.ButtonAnimationConfig;
 
             var scaleValue = 1f;
             var duration = config.ScaleUpDuration;
