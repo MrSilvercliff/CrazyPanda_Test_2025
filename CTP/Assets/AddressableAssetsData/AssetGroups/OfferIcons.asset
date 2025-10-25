@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: OfferIcons
   m_GUID: cc971f9261540994a81e95abab4d0b8e
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f48d9db80e919274cba450235280c6c2
+    m_Address: Assets/Project/Content/UI/Icons
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4624814ddabf2f4489fb05c9954d935f, type: 2}
   m_SchemaSet:
