@@ -22,12 +22,12 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnEnable()
         {
-            GameController.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameCore.Instance.EventBus.Subscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         private void OnDisable()
         {
-            GameController.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
+            GameCore.Instance.EventBus.UnSubscribe<CurrencyChangeEvent>(OnCurrencyChangeEvent);
         }
 
         private void Awake()
@@ -51,7 +51,7 @@ namespace RedPanda.Project.Scripts.UI
 
             gameObject.SetActive(true);
 
-            var shopConfig = GameController.Instance.ShopConfig;
+            var shopConfig = GameCore.Instance.ShopConfig;
             var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
 
             RefreshTitle(raritySettings);
@@ -64,6 +64,7 @@ namespace RedPanda.Project.Scripts.UI
         private void RefreshTitle(ShopConfig.RaritySettingsItem raritySettingsItem)
         {
             _titleText.fontMaterial = raritySettingsItem.TitleFontMaterial;
+            _titleText.color = raritySettingsItem.TitleFontColor;
             _titleText.text = _offerModel.Config.Title;
         }
 
@@ -74,6 +75,11 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshIcon()
         {
+            var iconId = _offerModel.Config.IconId;
+            var spriteAssetRef = GameCore.Instance.AddressablesConfig.SpriteConfig.GetOfferIconByName(iconId);
+
+            if (spriteAssetRef != null)
+                GameCore.Instance.AddressablesService.LoadSpriteAsync(spriteAssetRef, (sprite) => { _iconImage.sprite = sprite; });
         }
 
         private void RefreshPriceText()
@@ -83,13 +89,14 @@ namespace RedPanda.Project.Scripts.UI
 
         private void RefreshHasCurrency()
         {
-            var shopConfig = GameController.Instance.ShopConfig;
-            var hasCurrency = GameController.Instance.User.HasCurrency(_offerModel.Config.Cost);
+            var shopConfig = GameCore.Instance.ShopConfig;
+            var raritySettings = shopConfig.GetRaritySettings(_offerModel.Config.Rarity);
+            var hasCurrency = GameCore.Instance.User.HasCurrency(_offerModel.Config.Cost);
             _buyButton.interactable = hasCurrency;
 
             if (hasCurrency)
             {
-                _titleText.color = Color.white;
+                _titleText.color = raritySettings.TitleFontColor;
                 _backImage.material = null;
                 _iconImage.material = null;
                 _priceIconImage.material = null;
@@ -107,7 +114,7 @@ namespace RedPanda.Project.Scripts.UI
 
         private void OnBuyButtonClick()
         {
-            GameController.Instance.ShopService.TryBuy(_offerModel);
+            GameCore.Instance.ShopService.TryBuy(_offerModel);
         }
 
         private async Task OnCurrencyChangeEvent(CurrencyChangeEvent @event)

@@ -49,10 +49,12 @@ namespace RedPanda.Project
             public OfferRarity Rarity => _rarity;
             public Sprite BackSprite => _backSprite;
             public Material TitleFontMaterial => _titleFontMaterial;
+            public Color TitleFontColor => _titleFontColor;
 
             [SerializeField] private OfferRarity _rarity;
             [SerializeField] private Sprite _backSprite;
             [SerializeField] private Material _titleFontMaterial;
+            [SerializeField] private Color _titleFontColor;
         }
     }
 }
