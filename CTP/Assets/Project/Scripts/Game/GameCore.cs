@@ -4,6 +4,7 @@ using RedPanda.Project.Scripts.Model;
 using RedPanda.Project.Scripts.Services;
 using RedPanda.Project.Scripts.Services.UnityAddressables;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace RedPanda.Project.Scripts.Game
 {
@@ -13,6 +14,7 @@ namespace RedPanda.Project.Scripts.Game
 
         public IDOTweenAnimationsConfig DOTweenAnimationsConfig => _doTweenAnimationsConfig;
         public IShopConfig ShopConfig => _shopConfig;
+        public IAddressablesConfig AddressablesConfig => _addressablesConfig;
 
         public IUserModel User { get; private set; }
         public IEventBusAsync EventBus { get; private set; }
@@ -21,6 +23,7 @@ namespace RedPanda.Project.Scripts.Game
 
         [SerializeField] private DOTweenAnimationsConfig _doTweenAnimationsConfig;
         [SerializeField] private ShopConfig _shopConfig;
+        [SerializeField] private AddressablesConfig _addressablesConfig;
 
         private void Awake()
         {
