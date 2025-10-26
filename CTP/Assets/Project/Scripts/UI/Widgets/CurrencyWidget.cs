@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
-namespace RedPanda.Project.Scripts.UI
+namespace RedPanda.Project.Scripts.UI.Widgets
 {
     public class CurrencyWidget : MonoBehaviour, IInitializable
     {

@@ -1,4 +1,4 @@
-using RedPanda.Project.Scripts.UI;
+using RedPanda.Project.Scripts.UI.Views;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;

@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RedPanda.Project.Scripts.UI
+namespace RedPanda.Project.Scripts.UI.Widgets
 {
     public class OfferWidget : MonoBehaviour
     {
