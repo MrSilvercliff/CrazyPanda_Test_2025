@@ -47,8 +47,9 @@ namespace RedPanda.Project.Scripts.ObjectPool
         public void Despawn(T obj)
         {
             obj.gameObject.SetActive(false);
-            _stack.Push(obj);
+            obj.transform.SetParent(_parent);
             obj.OnDespawn();
+            _stack.Push(obj);
         }
 
         private void WarmingUp(int count)
