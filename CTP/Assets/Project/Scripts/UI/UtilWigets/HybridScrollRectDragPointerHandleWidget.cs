@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RedPanda.Project.Scripts.UI.UtilWigets
 {
@@ -18,6 +19,11 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
         {
             _hybridScrollRectDragWidget.OnBeginDragEvent -= OnBeginDragEvent;
             _hybridScrollRectDragWidget.OnEndDragEvent -= OnEndDragEvent;
+        }
+
+        public void Setup(ScrollRect verticalScrollRect, ScrollRect horizontalScrollRect)
+        { 
+            _hybridScrollRectDragWidget.Setup(verticalScrollRect, horizontalScrollRect);
         }
 
         private void OnBeginDragEvent()
