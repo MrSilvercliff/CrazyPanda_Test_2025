@@ -24,12 +24,14 @@ namespace RedPanda.Project.Scripts.Game
         public IAddressablesService AddressablesService { get; private set; }
 
         public IOfferCategoryWidgetPool OfferCategoryWidgetPool { get; private set; }
+        public IOfferWidgetHybridScrollDragObjectPool OfferWidgetHybridScrollDragObjectPool { get; private set; }
 
         [SerializeField] private DOTweenAnimationsConfig _doTweenAnimationsConfig;
         [SerializeField] private ShopConfig _shopConfig;
         [SerializeField] private AddressablesConfig _addressablesConfig;
 
         [SerializeField] private ObjectPoolItem _offerCategoryWidgetObjectPoolItem;
+        [SerializeField] private ObjectPoolItem _offerWidgetHybridScrollObjectPoolItem;
 
         private void Awake()
         {
@@ -49,6 +51,7 @@ namespace RedPanda.Project.Scripts.Game
         private void InitObjectPools()
         { 
             InitOfferCategoryWidgetObjectPool();
+            InitOfferWidgetHybridScrollObjectPool();
         }
 
         private void InitOfferCategoryWidgetObjectPool()
@@ -57,6 +60,14 @@ namespace RedPanda.Project.Scripts.Game
             var container = _offerCategoryWidgetObjectPoolItem.Container;
             var initCount = _offerCategoryWidgetObjectPoolItem.InitCount;
             OfferCategoryWidgetPool = new OfferCategoryWidgetPool(prefab, container, initCount);
+        }
+
+        private void InitOfferWidgetHybridScrollObjectPool()
+        {
+            var prefab = _offerWidgetHybridScrollObjectPoolItem.Prefab;
+            var container = _offerWidgetHybridScrollObjectPoolItem.Container;
+            var initCount = _offerWidgetHybridScrollObjectPoolItem.InitCount;
+            OfferWidgetHybridScrollDragObjectPool = new OfferWidgetHybridScrollDragObjectPool(prefab, container, initCount);
         }
     }
 }
