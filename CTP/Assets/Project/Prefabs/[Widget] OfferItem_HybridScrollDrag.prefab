@@ -1,106 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2299629067825315487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 512273807630107634}
-  - component: {fileID: 818897268329635400}
-  m_Layer: 5
-  m_Name: '[Widget] PointerHandle'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &512273807630107634
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299629067825315487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6070717297203358496}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &818897268329635400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2299629067825315487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063637963164f35468d2e93ee9c20f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.PointerHandleDragDetectWidgetScaleAnimated
-  _button: {fileID: 842063939931135835}
-  _contentToScale: {fileID: 4905360531544994716}
---- !u!1 &4595136523766260129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5429661633779835412}
-  - component: {fileID: 1329231915784013156}
-  m_Layer: 5
-  m_Name: '[Widget] HybridScrollDrag'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5429661633779835412
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595136523766260129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6070717297203358496}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1329231915784013156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4595136523766260129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd89a4689ee0e54d8d760153a8b0671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.Scripts.UI.UtilWigets.HybridScrollRectDragWidget
-  _horizontalScrollRect: {fileID: 0}
-  _verticalScrollRect: {fileID: 0}
-  _dragDeltaThreshold: 2
 --- !u!1 &7023449608957363990
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6070717297203358496}
+  - component: {fileID: 2461457363336598111}
+  - component: {fileID: 4438980431738689814}
   - component: {fileID: 2056688209407708599}
+  - component: {fileID: 8227665322751102580}
+  - component: {fileID: 3746137142776952290}
   m_Layer: 5
   m_Name: '[Widget] HybridScrollDrag_And_PointerHandle'
   m_TagString: Untagged
@@ -129,9 +32,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5429661633779835412}
-  - {fileID: 512273807630107634}
+  m_Children: []
   m_Father: {fileID: 2019307029571139334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -139,6 +40,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2461457363336598111
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023449608957363990}
+  m_CullTransparentMesh: 1
+--- !u!114 &4438980431738689814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023449608957363990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &2056688209407708599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +90,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0e28d7baa0aef42800bcef0ac0e28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.Scripts.UI.UtilWigets.HybridScrollRectDragPointerHandleWidget
-  _hybridScrollRectDragWidget: {fileID: 1329231915784013156}
-  _pointerHandleDragDetectWidget: {fileID: 818897268329635400}
+  _hybridScrollRectDragWidget: {fileID: 8227665322751102580}
+  _pointerHandleDragDetectWidget: {fileID: 3746137142776952290}
+--- !u!114 &8227665322751102580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023449608957363990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd89a4689ee0e54d8d760153a8b0671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.Scripts.UI.UtilWigets.HybridScrollRectDragWidget
+  _horizontalScrollRect: {fileID: 0}
+  _verticalScrollRect: {fileID: 0}
+  _dragDeltaThreshold: 2
+--- !u!114 &3746137142776952290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023449608957363990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063637963164f35468d2e93ee9c20f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.PointerHandleDragDetectWidgetScaleAnimated
+  _button: {fileID: 842063939931135835}
+  _contentToScale: {fileID: 4905360531544994716}
 --- !u!1001 &5474977446426600378
 PrefabInstance:
   m_ObjectHideFlags: 0
