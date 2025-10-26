@@ -17,6 +17,12 @@ namespace RedPanda.Project.Scripts.UI.UtilWigets
         private bool _horizontalDragging;
         private bool _verticalDragging;
 
+        public void Setup(ScrollRect verticalScroll, ScrollRect horizontalScroll)
+        { 
+            _verticalScrollRect = verticalScroll;
+            _horizontalScrollRect = horizontalScroll;
+        }
+
         public void OnPointerDown(PointerEventData eventData)
         {
             _horizontalDragging = false;
