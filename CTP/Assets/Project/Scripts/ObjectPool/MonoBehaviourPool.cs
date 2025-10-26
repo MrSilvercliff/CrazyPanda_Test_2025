@@ -25,6 +25,15 @@ namespace RedPanda.Project.Scripts.ObjectPool
                 WarmingUp(initCount);
         }
 
+        public MonoBehaviourPool(GameObject prefab, Transform parent = null, int initCount = 0)
+        {
+            _sourceObject = prefab.GetComponent<T>();
+            _parent = parent == null ? _sourceObject.transform.parent : parent;
+
+            if (initCount > 0)
+                WarmingUp(initCount);
+        }
+
         public T Spawn()
         {
             if (_stack.Count == 0)
