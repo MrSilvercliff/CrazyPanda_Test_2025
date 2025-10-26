@@ -1,8 +1,10 @@
 using RedPanda.Project.Scripts.Configs;
 using RedPanda.Project.Scripts.EventBus.Async;
 using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.ObjectPool;
 using RedPanda.Project.Scripts.Services;
 using RedPanda.Project.Scripts.Services.UnityAddressables;
+using RedPanda.Project.Scripts.UI.Widgets;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -21,18 +23,40 @@ namespace RedPanda.Project.Scripts.Game
         public IShopService ShopService { get; private set; }
         public IAddressablesService AddressablesService { get; private set; }
 
+        public IOfferCategoryWidgetPool OfferCategoryWidgetPool { get; private set; }
+
         [SerializeField] private DOTweenAnimationsConfig _doTweenAnimationsConfig;
         [SerializeField] private ShopConfig _shopConfig;
         [SerializeField] private AddressablesConfig _addressablesConfig;
 
+        [SerializeField] private ObjectPoolItem _offerCategoryWidgetObjectPoolItem;
+
         private void Awake()
         {
             Instance = this;
+            InitServices();
+            InitObjectPools();
+        }
 
+        private void InitServices()
+        {
             User = new UserModel();
             EventBus = new EventBusAsync();
             ShopService = new ShopService();
             AddressablesService = new AddressablesService();
+        }
+
+        private void InitObjectPools()
+        { 
+            InitOfferCategoryWidgetObjectPool();
+        }
+
+        private void InitOfferCategoryWidgetObjectPool()
+        {
+            var prefab = _offerCategoryWidgetObjectPoolItem.Prefab;
+            var container = _offerCategoryWidgetObjectPoolItem.Container;
+            var initCount = _offerCategoryWidgetObjectPoolItem.InitCount;
+            OfferCategoryWidgetPool = new OfferCategoryWidgetPool(prefab, container, initCount);
         }
     }
 }
