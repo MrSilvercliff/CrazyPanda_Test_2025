@@ -2,12 +2,13 @@ using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Interfaces;
 using RedPanda.Project.Scripts.Model;
 using RedPanda.Project.Scripts.UI.Events;
+using RedPanda.Project.Scripts.UI.Widgets;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace RedPanda.Project.Scripts.UI
+namespace RedPanda.Project.Scripts.UI.Views
 {
     public class ShopView : MonoBehaviour, IInitializable
     {

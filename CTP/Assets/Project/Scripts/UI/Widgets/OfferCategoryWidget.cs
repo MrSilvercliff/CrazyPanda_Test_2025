@@ -3,8 +3,9 @@ using RedPanda.Project.Scripts.Model;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace RedPanda.Project.Scripts.UI
+namespace RedPanda.Project.Scripts.UI.Widgets
 {
     public class OfferCategoryWidget : MonoBehaviour, IInitializable
     {
@@ -13,14 +14,16 @@ namespace RedPanda.Project.Scripts.UI
         [SerializeField] private OfferWidget _offerWidgetPrefab;
 
         private Dictionary<OfferModel, OfferWidget> _widgets;
+        private ScrollRect _viewScrollRect;
 
         public void Init()
         {
             _widgets = new();
         }
 
-        public void Setup(OfferType offerType, IReadOnlyList<OfferModel> offerModels)
+        public void Setup(OfferType offerType, IReadOnlyList<OfferModel> offerModels, ScrollRect viewScrollRect)
         {
+            _viewScrollRect = viewScrollRect;
             RefreshTitle(offerType);
             RefreshOfferWidgets(offerModels);
         }
