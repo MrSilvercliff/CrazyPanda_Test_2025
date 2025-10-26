@@ -1,5 +1,7 @@
 using RedPanda.Project.Scripts.Interfaces;
 using RedPanda.Project.Scripts.Model;
+using RedPanda.Project.Scripts.ObjectPool;
+using RedPanda.Project.Scripts.UI.UtilWigets;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,23 +9,32 @@ using UnityEngine.UI;
 
 namespace RedPanda.Project.Scripts.UI.Widgets
 {
-    public class OfferCategoryWidget : MonoBehaviour, IInitializable
+    public class OfferCategoryWidget : MonoBehaviour, IPoolable
     {
         [SerializeField] private TMP_Text _titleText;
+        [SerializeField] private ScrollRect _offerWidgetScrollRect;
         [SerializeField] private Transform _offerWidgetsContainer;
         [SerializeField] private OfferWidget _offerWidgetPrefab;
+        [SerializeField] private HybridScrollRectDragWidget _hybridScrollRectDragWidget;
 
         private Dictionary<OfferModel, OfferWidget> _widgets;
-        private ScrollRect _viewScrollRect;
 
-        public void Init()
+        public void OnCreate()
         {
             _widgets = new();
         }
 
+        public void OnSpawn()
+        {
+        }
+
+        public void OnDespawn()
+        {
+        }
+
         public void Setup(OfferType offerType, IReadOnlyList<OfferModel> offerModels, ScrollRect viewScrollRect)
         {
-            _viewScrollRect = viewScrollRect;
+            RefreshScrollRects(viewScrollRect);
             RefreshTitle(offerType);
             RefreshOfferWidgets(offerModels);
         }
@@ -31,6 +42,11 @@ namespace RedPanda.Project.Scripts.UI.Widgets
         public void OnOfferBuy(OfferModel offerModel)
         {
             CheckOfferBuyLimit(offerModel);
+        }
+
+        private void RefreshScrollRects(ScrollRect viewScrollRect)
+        { 
+            _hybridScrollRectDragWidget.Setup(viewScrollRect, _offerWidgetScrollRect);
         }
 
         private void RefreshTitle(OfferType offerType)

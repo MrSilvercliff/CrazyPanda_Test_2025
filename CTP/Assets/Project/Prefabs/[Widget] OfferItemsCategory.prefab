@@ -681,8 +681,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: RedPanda.Project::RedPanda.Project.OfferCategoryWidget
   _titleText: {fileID: 8923016382938351218}
+  _offerWidgetScrollRect: {fileID: 4897402976575346291}
   _offerWidgetsContainer: {fileID: 1973883355525023544}
   _offerWidgetPrefab: {fileID: 4751391030147979345}
+  _hybridScrollRectDragWidget: {fileID: 8374008187374062028}
 --- !u!1 &7910236161452414220
 GameObject:
   m_ObjectHideFlags: 0
