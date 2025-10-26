@@ -1,3 +1,5 @@
+using RedPanda.Project.Scripts.Extensions;
+using RedPanda.Project.Scripts.Game;
 using RedPanda.Project.Scripts.Interfaces;
 using RedPanda.Project.Scripts.Model;
 using RedPanda.Project.Scripts.ObjectPool;
@@ -14,10 +16,9 @@ namespace RedPanda.Project.Scripts.UI.Widgets
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private ScrollRect _offerWidgetScrollRect;
         [SerializeField] private Transform _offerWidgetsContainer;
-        [SerializeField] private OfferWidget _offerWidgetPrefab;
         [SerializeField] private HybridScrollRectDragWidget _hybridScrollRectDragWidget;
 
-        private Dictionary<OfferModel, OfferWidget> _widgets;
+        private Dictionary<OfferModel, OfferWidgetHybridScrollDrag> _widgets;
 
         public void OnCreate()
         {
@@ -36,7 +37,7 @@ namespace RedPanda.Project.Scripts.UI.Widgets
         {
             RefreshScrollRects(viewScrollRect);
             RefreshTitle(offerType);
-            RefreshOfferWidgets(offerModels);
+            RefreshOfferWidgets(offerModels, viewScrollRect);
         }
 
         public void OnOfferBuy(OfferModel offerModel)
@@ -54,19 +55,22 @@ namespace RedPanda.Project.Scripts.UI.Widgets
             _titleText.text = offerType.ToString();
         }
 
-        private void RefreshOfferWidgets(IReadOnlyList<OfferModel> offerModels)
+        private void RefreshOfferWidgets(IReadOnlyList<OfferModel> offerModels, ScrollRect viewScrollRect)
         {
+            var pool = GameCore.Instance.OfferWidgetHybridScrollDragObjectPool;
+
             foreach (var offerModel in offerModels)
             {
                 if (_widgets.ContainsKey(offerModel))
                     continue;
 
-                /*
-                 * Better use object pooling
-                 * But dont have so much time, so heck it
-                 */
-                var newWidget = Instantiate(_offerWidgetPrefab, _offerWidgetsContainer);
+                var newWidget = pool.Spawn();
+                newWidget.transform.SetParent(_offerWidgetsContainer);
+                newWidget.transform.ResetLocalPosition();
+                newWidget.transform.ResetLocalRotation();
+                newWidget.transform.ResetLocalScale();
                 newWidget.Setup(offerModel);
+                newWidget.Setup(viewScrollRect, _offerWidgetScrollRect);
                 newWidget.gameObject.SetActive(true);
                 _widgets[offerModel] = newWidget;
             }
@@ -82,11 +86,9 @@ namespace RedPanda.Project.Scripts.UI.Widgets
             if (!isBuyLimitReached)
                 return;
 
-            /*
-             * Better user object pooling and return widget to pool
-             * But dont have so much time, so heck it x2
-             */
-            widget.gameObject.SetActive(false);
+            var pool = GameCore.Instance.OfferWidgetHybridScrollDragObjectPool;
+            pool.Despawn(widget);
+            _widgets.Remove(offerModel);
         }
     }
 }
